@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Listagem de contatos utilizando o Spring Boot</title>
+  <title>Agendamento de aulas on-line</title>
+  <meta charset="utf-8">
 </head>
  
 <body>
-  <h1>Lista de contatos</h1>
+  <h1>Calendário de aulas disponíveis</h1>
   <table>
     <thead>
+      <tr>
+      	<th th:each="dia: ${dias}" th:text="${dia}"></th>
+      </tr>
       <tr>
         <th>#</th>
         <th>Nome</th>
@@ -19,6 +23,20 @@
         <td th:text="${evento.id}"></td>
         <td th:text="${evento.nome}"></td>
         <td th:text="${evento.date}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+      	<th th:each="dia, i: ${calendario}" th:text="${i.index}"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="dia : ${calendario}">  
+        <td th:each="aula, x : ${dia}">
+        	<div th:text="${x.index}"></div>
+        </td>
       </tr>
     </tbody>
   </table>

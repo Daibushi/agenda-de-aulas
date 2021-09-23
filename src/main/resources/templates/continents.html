@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Agendamento de aulas on-line</title>
+  <meta charset="utf-8">
+</head>
+ 
+<body>
+  <h1>Calendário de aulas disponíveis</h1>
+  <h4 th:each="continent : ${continents}" th:text="${continent}"></h4>
+<ul th:each="continent : ${continents}">
+    <li th:text="${continent}"></li>
+</ul>
+</body>
+</html>
